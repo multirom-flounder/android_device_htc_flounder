@@ -135,7 +135,20 @@ DEVICE_RESOLUTION := 1200x1920
 #TW_X_OFFSET := 168
 #TW_Y_OFFSET := 64
 BOARD_HAS_NO_REAL_SDCARD := true
-TW_INCLUDE_NTFS_3G := true
 TARGET_RECOVERY_DEVICE_MODULES := libc++ libkeymaster_messages
 TW_RECOVERY_ADDITIONAL_RELINK_FILES := $(OUT)/system/lib64/libc++.so $(OUT)/system/lib64/libkeymaster_messages.so
 BOARD_SUPPRESS_SECURE_ERASE := true
+
+# MultiROM
+TARGET_RECOVERY_IS_MULTIROM := true
+MR_INPUT_TYPE := type_b
+MR_INIT_DEVICES := device/htc/flounder/multirom/mr_init_devices.c
+#MR_RD_ADDR := 0x11000000
+MR_DPI := xhdpi
+MR_DPI_FONT := 216
+MR_FSTAB := device/htc/flounder/fstab.flounder
+MR_USE_MROM_FSTAB := false
+MR_KEXEC_MEM_MIN := 0x85000000
+MR_KEXEC_DTB := true
+MR_ALLOW_NKK71_NOKEXEC_WORKAROUND := true
+MR_PIXEL_FORMAT := "RGBX_8888"
